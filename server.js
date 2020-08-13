@@ -13,6 +13,7 @@ const {Users} = require('./helpers/UsersClass');
 const {Global} = require('./helpers/Global');
 const compression = require('compression');
 const helmet = require('helmet');
+require('dotenv').config();
 
 
 const container = require('./container');
@@ -62,7 +63,6 @@ container.resolve(function(users, _, admin, home, group, results, privatechat, p
     function ConfigureExpress(app){
         app.use(compression());
         app.use(helmet());
-        
         require('./passport/passport-local');
         require('./passport/passport-facebook');
         require('./passport/passport-google');
@@ -74,7 +74,7 @@ container.resolve(function(users, _, admin, home, group, results, privatechat, p
         app.use(bodyParser.urlencoded({extended: true}));
         
         app.use(session({
-            secret: '',
+            secret: 'pspsocial',
             resave: false,
             saveUninitialized: false,
             store: new MongoStore({mongooseConnection: mongoose.connection})

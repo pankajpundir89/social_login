@@ -18,7 +18,7 @@ passport.use(new FacebookStrategy({
     clientID: process.env.FB_CLIENT_ID,
     clientSecret: process.env.FB_CLIENT_SECRET,
     profileFields: ['email', 'displayName', 'photos'],
-    callbackURL: 'http://localhost:3000/auth/facebook/callback',
+    callbackURL: 'https://psp-sociallogin.herokuapp.com/auth/facebook/callback',
     passReqToCallback: true
     
 }, (req, token, refreshToken, profile, done) => {
