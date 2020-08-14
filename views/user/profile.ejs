@@ -103,20 +103,14 @@
                                 </div>
                                 <label style="color:#4aa1f3 !important">Gender : </label>
                                 <label style="color:#4aa1f3 !important; margin-right:10px;"></label>
-                                <% if(typeof user.gender !== 'undefined') {%>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="gender" value="<%= user.gender %>" id="gender" checked />
-                                        <%= user.gender %>
-                                    </label><br>
-                                <% } %>
-                                
+                                             
                                 
                                 <label class="radio-inline">
-                                    <input type="radio" name="gender" value="Male" id="gender" />
+                                    <input type="radio" name="gender" value="Male" id="gender" <% if(user.gender=='Male'){%>checked<% } %> />
                                     Male
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="gender" value="Female" id="gender" />
+                                    <input type="radio" name="gender" value="Female" id="gender" <% if(user.gender=='Female'){%>checked<% } %>/>
                                     Female
                                 </label>
 

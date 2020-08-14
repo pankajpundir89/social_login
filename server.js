@@ -14,17 +14,19 @@ const {Global} = require('./helpers/Global');
 const compression = require('compression');
 const helmet = require('helmet');
 require('dotenv').config();
-
+const InitiateMongoServer = require("./helpers/db-config.js");
 
 const container = require('./container');
 
 container.resolve(function(users, _, admin, home, group, results, privatechat, profile, interests, news){
     
-    mongoose.set('useFindAndModify', false);
+    InitiateMongoServer();
     mongoose.set('useCreateIndex', true);
+    /* mongoose.set('useFindAndModify', false); 
+       
     mongoose.Promise = global.Promise;
-    mongoose.connect('mongodb://localhost/footballkik', {useNewUrlParser: true});
-    
+    mongoose.connect('mongodb://localhost/footballkik', {useNewUrlParser: true});*/
+
     const app = SetupExpress();
     
     function SetupExpress(){

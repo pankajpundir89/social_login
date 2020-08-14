@@ -17,7 +17,8 @@ passport.deserializeUser((id, done) => {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: 'https://psp-sociallogin.herokuapp.com/auth/google/callback',
+    //callbackURL: 'https://psp-sociallogin.herokuapp.com/auth/google/callback',
+    callbackURL: 'https://a81b8a302908.ngrok.io/auth/google/callback',
     passReqToCallback: true
     
 }, (req, accessToken, refreshToken, profile, done) => {
